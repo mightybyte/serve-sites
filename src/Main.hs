@@ -15,7 +15,7 @@ import Text.Printf
 site :: FilePath -> Snap ()
 site root = do
     req <- getRequest
-    let domain = T.unpack $ decodeUtf8 $ rqServerName req
+    let domain = T.unpack $ decodeUtf8 $ rqServerAddr req
     serveDirectory (root </> domain)
 
 main :: IO ()
